@@ -36,7 +36,24 @@ let config = {
 
 let validator = new Validator(config, '#registrationForm')
 
+//User registration
 
+document.querySelector('#registrationForm').addEventListener('submit', e=>{
+	e.preventDefault()
+
+	if(validator.validationPassed()){
+
+		let user = new User()
+		user.username = document.querySelector('#username')
+		user.email = document.querySelector('#registration_email')
+		user.password = document.querySelector('#registration_password')
+
+		user.create()
+
+	} else {
+		alert('form is not filled correctly!')
+	}
+})
 
 
 
