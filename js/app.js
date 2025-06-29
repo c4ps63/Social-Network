@@ -44,9 +44,9 @@ document.querySelector('#registrationForm').addEventListener('submit', e=>{
 	if(validator.validationPassed()){
 
 		let user = new User()
-		user.username = document.querySelector('#username')
-		user.email = document.querySelector('#registration_email')
-		user.password = document.querySelector('#registration_password')
+		user.username = document.querySelector('#username').value
+		user.email = document.querySelector('#registration_email').value
+		user.password = document.querySelector('#registration_password').value
 
 		user.create()
 
