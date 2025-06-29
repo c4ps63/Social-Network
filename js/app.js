@@ -1,3 +1,10 @@
+let session = new Session()
+session = session.getSession()  //taking cookie
+
+if(session !== "") {  //if cookie exists, user goes to hexa
+	window.location.href = "hexa.html"
+}
+
 //Registration pop-up modal control
 
 document.querySelector('#registration').addEventListener('click', ()=>{

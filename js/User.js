@@ -8,7 +8,7 @@ class User {
 	create() {
 		let data = {
 			username: this.username,
-			email: this.email,
+			email: this.email, 
 			password: this.password
 		}
 
@@ -24,7 +24,14 @@ class User {
 		})
 		.then(response => response.json()) //When user is created it will return JSON and say User created
 		.then(data =>{
-			console.log('User created')
+		//console.log('User created')
+		
+		//Creating session
+		let session = new Session()
+		session.user_id = data.id; //We use user_id that we got as returned information
+		session.startSession()
+
+		window.location.href = 'hexa.html'
 		})
 	}
 
