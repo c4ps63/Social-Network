@@ -1,7 +1,7 @@
 /*
 Task: 
 1. Start session when someone registers
-2. Take session to be able to check
+2. Take session to be able to check if user is still logged in
 3. Destroy session when someone loggs off 
 */
 
@@ -10,15 +10,14 @@ class Session {
 
 	startSession() {
 		const d = new Date()
-		d.setTime(d.getTime()+(2*24*60*1000)) //Expiration date
+		d.setTime(d.getTime()+(2*24*60*1000)) 							//Expiration date
 
 		let expires = "expires=" + d.toUTCString()
 		document.cookie = "user_id=" + this.user_id + ";" + expires
-
 	}
 
 	getSession() {
-		let name = 'user_id=' //cookie name
+		let name = 'user_id=' 											//Cookie name
 		let ca = document.cookie.split(';')
 
 		//Checking through split cookie to see if it exists
@@ -44,8 +43,4 @@ class Session {
 			document.cookie = name + "=,expires=Thu, 01 Jan 1970 00:00:00 GMT"
 		}
 	}
-
-
-
-
 }

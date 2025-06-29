@@ -1,7 +1,14 @@
-let session = new Session()
-session = session.getSession()  //taking cookie
+/*
+1. Take cookie
+2. If cookie exists useer goes to hexa
+Meaning: If user is registered or logged in, we need to disable path back to the login page 
+	*unless user loggs off
+*/
 
-if(session !== "") {  //if cookie exists, user goes to hexa
+let session = new Session()
+session = session.getSession()  
+
+if(session !== "") {  
 	window.location.href = "hexa.html"
 }
 
@@ -62,8 +69,20 @@ document.querySelector('#registrationForm').addEventListener('submit', e=>{
 	}
 })
 
+//User Login
 
+document.querySelector('#loginForm').addEventListener('submit', e =>{
+	e.preventDefault()
 
+	let login_email = document.querySelector('#login_email').value
+	let login_password = document.querySelector('#login_password').value
+
+	let user = new User()
+	user.email = login_email
+	user.password = login_password 
+	user.login()	
+
+})
 
 
 
