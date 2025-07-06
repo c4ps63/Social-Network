@@ -4,14 +4,14 @@
 Meaning: If user is registered or logged in, we need to disable path back to the login page 
 	*unless user loggs off
 */
+window.addEventListener('pageshow', ()=>{
+	let session = new Session()
+	session = session.getSession()  
 
-let session = new Session()
-session = session.getSession()  
-
-if(session !== "") {  
-	window.location.href = "hexa.html"
-}
-
+	if(session !== "") {  
+		window.location.href = "hexa.html"
+	}
+})
 //Registration pop-up modal control
 
 document.querySelector('#registration').addEventListener('click', ()=>{
